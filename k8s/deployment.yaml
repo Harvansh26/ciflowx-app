@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ciflowx-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ciflowx-app
+  template:
+    metadata:
+      labels:
+        app: ciflowx-app
+    spec:
+      containers:
+        - name: ciflowx-app
+          image: harvansh1/ciflowx-app:latest
+          ports:
+            - containerPort: 3000
